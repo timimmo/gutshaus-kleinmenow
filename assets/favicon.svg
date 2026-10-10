@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Der Meteorit „Meno“, 1862: ein Stein mit Schweif -->
+  <path d="M3 3 L17 15" stroke="#1c1b19" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M8 2 L15 9" stroke="#1c1b19" stroke-width="1.2" stroke-linecap="round" opacity=".55"/>
+  <path d="M19 13.5c3.5-1.6 8.2-.4 9.6 3.1 1.3 3.3-.6 7.4-3.9 9.2-3.4 1.8-8 .9-9.6-2.4-1.6-3.3.3-8.2 3.9-9.9z" fill="#1c1b19"/>
+</svg>
