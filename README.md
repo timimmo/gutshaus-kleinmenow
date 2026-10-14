@@ -18,9 +18,10 @@ index.html          Startseite (Projekt, Wohnungen, Haus, Lage, Chronik, Kontakt
 impressum.html
 datenschutz.html
 404.html
+en/                 Englische Fassung der drei Seiten
 assets/css/         Stylesheet
 assets/fonts/       Mazius Display und EB Garamond, selbst gehostet (SIL OFL)
-assets/img/         Fotos als WebP in drei Größen, Grundriss, Vorschaubild
+assets/img/         Fotos als WebP in drei Größen (480, 960, 1600 px), Grundriss, Vorschaubild
 dokumente/          Grundriss Obergeschoss als PDF
 CNAME               Eigene Domain für GitHub Pages
 ```

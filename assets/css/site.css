@@ -343,3 +343,11 @@ figcaption {
   .nav, .footer ul { display: none; }
   figure img { filter: none; }
 }
+
+/* Sprachumschaltung: zwei kleine Flaggen rechts oben (Wunsch des Eigentümers) */
+.masthead > nav { margin-left: auto; }
+.lang { display: flex; align-items: center; gap: 0.6rem; margin: 0; }
+.lang a { display: block; line-height: 0; opacity: 0.5; text-decoration: none; }
+.lang a[aria-current], .lang a:hover, .lang a:focus-visible { opacity: 1; }
+.flag { width: 1.4rem; height: auto; display: block; outline: 1px solid var(--rule); outline-offset: -1px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
