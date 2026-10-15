@@ -351,3 +351,9 @@ figcaption {
 .lang a[aria-current], .lang a:hover, .lang a:focus-visible { opacity: 1; }
 .flag { width: 1.4rem; height: auto; display: block; outline: 1px solid var(--rule); outline-offset: -1px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Kurz gefragt */
+.faq { margin: 0; border-top: 1px solid var(--rule); }
+.faq > div { padding-block: 1rem 1.1rem; border-bottom: 1px solid var(--rule); }
+.faq dt { font-weight: 500; font-size: var(--t-1); line-height: 1.25; max-width: 30ch; }
+.faq dd { margin: 0.5rem 0 0; max-width: 62ch; }
