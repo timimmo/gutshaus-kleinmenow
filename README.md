@@ -4,17 +4,22 @@ Website für das Gutshaus Kleinmenow (Villa Meteor) bei Fürstenberg/Havel. Sie 
 
 Live: **https://gutshaus-kleinmenow.de**
 
+**Selbst pflegen:** Preise, Status der Wohnungen, Telefonnummer, E-Mail, Kleinanzeigen-Link und das Stand-Datum stehen in der Datei `_data/inhalt.yml`. Wie man sie im Browser ändert, steht in [WARTUNG.md](WARTUNG.md).
+
 ## Wie das hier läuft
 
-- **Timm** (`timimmo`) liefert Inhalte und Wünsche als [Issues](../../issues): Texte, Fotos, PDFs, Links, Korrekturen. Jedes Issue sollte kurz sagen, was damit passieren soll.
-- **Björn** (`dasboe`) setzt die Issues um. Jeder Push auf `main` geht nach etwa einer Minute live.
+- **Timm** (`timimmo`) ändert die Werte in `_data/inhalt.yml` selbst. Alles andere (Texte, Fotos, PDFs, Links, Korrekturen) liefert er als [Issue](../../issues). Jedes Issue sollte kurz sagen, was damit passieren soll.
+- **Björn** (`dasboe`) setzt die Issues um, schaut aber nur noch ab und zu rein. Jeder Push auf `main` geht nach etwa einer Minute live.
 
 ## Aufbau
 
-Reines HTML und CSS, kein Build-Schritt, kein JavaScript. GitHub Pages liefert den Inhalt von `main` direkt aus.
+HTML und CSS, kein JavaScript. GitHub Pages baut die Seite mit dem dort eingebauten Jekyll: Die sechs HTML-Seiten enthalten Platzhalter, die beim Bau mit den Werten aus `_data/inhalt.yml` gefüllt werden. Kein eigener Build-Schritt, keine Abhängigkeiten.
 
 ```
-index.html          Startseite (Projekt, Wohnungen, Haus, Lage, Chronik, Kontakt)
+_data/inhalt.yml    Die Werte, die sich ändern (Preise, Status, Kontakt, Links, Stand)
+_config.yml         Einstellungen für den Bau, muss nicht angefasst werden
+WARTUNG.md          Anleitung für Timm
+index.html          Startseite (Projekt, Wohnungen, Haus, Lage, Chronik, Kurz gefragt, Kontakt)
 impressum.html
 datenschutz.html
 404.html

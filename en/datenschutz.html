@@ -1,3 +1,7 @@
+---
+---
+{%- assign d = site.data.inhalt -%}
+{%- assign tel = d.telefon | default: "" | remove: " " -%}
 <!doctype html>
 <html lang="en">
 <head>
@@ -43,7 +47,7 @@
     Kleinmenower Straße 4<br>
     16798 Fürstenberg/Havel<br>
     Germany<br>
-    <a href="mailto:tim.c.lehmann@gmail.com">tim.c.lehmann@gmail.com</a>
+    <a href="mailto:{{ d.mail }}">{{ d.mail }}</a>
   </address>
 
   <h2>Hosting and server log files</h2>
@@ -58,11 +62,11 @@
   <h2>Your rights</h2>
   <p>You have the right to information about the data stored about you, to rectification, erasure and restriction of processing, to data portability, and the right to object to processing based on legitimate interests. To exercise these rights, contact the address above. You may also lodge a complaint with a data protection supervisory authority, for example the <a href="https://www.lda.brandenburg.de/">State Commissioner for Data Protection and the Right of Access to Information of Brandenburg</a>.</p>
 
-  <p class="meta mono">As of October 2026</p>
+  <p class="meta mono">As of {{ d.stand }}</p>
 </main>
 
 <footer class="footer mono">
-  <p style="margin:0">© 2026 Tim Lehmann</p>
+  <p style="margin:0">© {{ d.stand | split: "/" | last }} Tim Lehmann</p>
   <ul>
     <li><a href="./">Home</a></li>
     <li><a href="impressum.html">Legal notice</a></li>

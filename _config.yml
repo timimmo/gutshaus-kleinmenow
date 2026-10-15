@@ -1,0 +1,3 @@
+# Einstellungen für GitHub Pages. Hier muss nichts geändert werden.
+# Die Inhalte, die sich ändern, stehen in _data/inhalt.yml.
+exclude: [README.md, WARTUNG.md, CLAUDE.md, temp, Gemfile, Gemfile.lock]

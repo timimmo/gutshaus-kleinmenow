@@ -1,0 +1,32 @@
+# Diese Datei ist die einzige, die du selbst änderst.
+# Nur den Text zwischen den Anführungszeichen ändern, Zeilen nicht löschen.
+# Jede Änderung ist nach etwa einer Minute auf gutshaus-kleinmenow.de zu sehen,
+# auf Deutsch und auf Englisch. Die Anleitung steht in WARTUNG.md.
+
+# Stand der Angaben als Monat/Jahr. Steht unten auf jeder Seite.
+stand: "10/2026"
+
+# Telefonnummer, so wie sie auf der Seite stehen soll.
+# Leer lassen (""), wenn keine Nummer auf der Seite stehen soll.
+telefon: "+49 160 97458658"
+
+# E-Mail-Adresse für Anfragen.
+mail: "tim.c.lehmann@gmail.com"
+
+# Wohnung 6. Status: frei, reserviert oder verkauft.
+# Preis so schreiben: "195.000 €". Leer lassen (""), dann steht dort "auf Anfrage".
+status_we6: "frei"
+preis_we6: ""
+
+# Wohnung 7, genauso.
+status_we7: "frei"
+preis_we7: ""
+
+# Wohnung 8, genauso. Sind alle drei auf verkauft, sagt die Seite das oben
+# und blendet Preise und Inserat aus.
+status_we8: "frei"
+preis_we8: "185.000 €"
+
+# Link zum Inserat für Wohnung 8 auf Kleinanzeigen.
+# Leer lassen (""), wenn es kein Inserat gibt. Dann verschwindet der Hinweis auf der Seite.
+kleinanzeigen_link: "https://www.kleinanzeigen.de/s-anzeige/wohnen-im-ehemaligen-gutshaus-kleinmenow-community-projekt-we8/3496047260-196-19813"

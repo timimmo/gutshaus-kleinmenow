@@ -1,3 +1,7 @@
+---
+---
+{%- assign d = site.data.inhalt -%}
+{%- assign tel = d.telefon | default: "" | remove: " " -%}
 <!doctype html>
 <html lang="en">
 <head>
@@ -44,7 +48,7 @@
   </address>
 
   <h2>Contact</h2>
-  <p>Email: <a href="mailto:tim.c.lehmann@gmail.com">tim.c.lehmann@gmail.com</a><br>Phone: <a href="tel:+4916097458658">+49 160 97458658</a></p>
+  <p>Email: <a href="mailto:{{ d.mail }}">{{ d.mail }}</a>{% if tel != "" %}<br>Phone: <a href="tel:{{ tel }}">{{ d.telefon }}</a>{% endif %}</p>
 
   <h2>Responsible for the content</h2>
   <p>Tim Lehmann, address as above.</p>
@@ -55,11 +59,11 @@
   <h2>Fonts</h2>
   <p>This site uses the typefaces <a href="https://github.com/collletttivo/Mazius-Display">Mazius Display</a> (Collletttivo) and <a href="https://github.com/georgd/EB-Garamond">EB Garamond</a> (Georg Duffner, Octavio Pardo), both under the SIL Open Font License 1.1. They are served by this website itself.</p>
 
-  <p class="meta mono">As of October 2026</p>
+  <p class="meta mono">As of {{ d.stand }}</p>
 </main>
 
 <footer class="footer mono">
-  <p style="margin:0">© 2026 Tim Lehmann</p>
+  <p style="margin:0">© {{ d.stand | split: "/" | last }} Tim Lehmann</p>
   <ul>
     <li><a href="./">Home</a></li>
     <li><a href="datenschutz.html">Privacy</a></li>

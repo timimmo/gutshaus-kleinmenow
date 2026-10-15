@@ -1,3 +1,22 @@
+---
+---
+{%- assign d = site.data.inhalt -%}
+{%- assign tel = d.telefon | default: "" | remove: " " -%}
+{%- assign s6 = d.status_we6 | default: "frei" -%}
+{%- assign s7 = d.status_we7 | default: "frei" -%}
+{%- assign s8 = d.status_we8 | default: "frei" -%}
+{%- assign p6 = d.preis_we6 | default: "" -%}
+{%- assign p7 = d.preis_we7 | default: "" -%}
+{%- assign p8 = d.preis_we8 | default: "" -%}
+{%- assign inserat = d.kleinanzeigen_link | default: "" -%}
+{%- assign alle_verkauft = false -%}
+{%- if s6 == "verkauft" and s7 == "verkauft" and s8 == "verkauft" -%}{%- assign alle_verkauft = true -%}{%- endif -%}
+{%- assign n = 0 -%}
+{%- capture offers -%}
+{%- if s6 == "frei" and p6 != "" -%}{%- if n > 0 -%}, {%- endif -%}{"@type": "Offer", "name": "Wohnung 6, Obergeschoss links, 65,78 m² Wohnfläche", "price": "{{ p6 | remove: '.' | remove: '€' | strip }}", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "seller": {"@type": "Person", "name": "Tim Lehmann"}}{%- assign n = n | plus: 1 -%}{%- endif -%}
+{%- if s7 == "frei" and p7 != "" -%}{%- if n > 0 -%}, {%- endif -%}{"@type": "Offer", "name": "Wohnung 7, Obergeschoss rechts zur Straße, 38,06 m² Wohnfläche", "price": "{{ p7 | remove: '.' | remove: '€' | strip }}", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "seller": {"@type": "Person", "name": "Tim Lehmann"}}{%- assign n = n | plus: 1 -%}{%- endif -%}
+{%- if s8 == "frei" and p8 != "" -%}{%- if n > 0 -%}, {%- endif -%}{"@type": "Offer", "name": "Wohnung 8, Obergeschoss rechts zum Garten, 48,83 m² Wohnfläche", "price": "{{ p8 | remove: '.' | remove: '€' | strip }}", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "seller": {"@type": "Person", "name": "Tim Lehmann"}}{%- assign n = n | plus: 1 -%}{%- endif -%}
+{%- endcapture -%}
 <!doctype html>
 <html lang="de">
 <head>
@@ -25,6 +44,7 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+{%- unless alle_verkauft %}
     {
       "@type": "RealEstateListing",
       "name": "Gutshaus Kleinmenow – drei Eigentumswohnungen im Obergeschoss",
@@ -49,16 +69,10 @@
           {"@type": "LocationFeatureSpecification", "name": "Ziernsee in 200 m, drei Badestellen", "value": true},
           {"@type": "LocationFeatureSpecification", "name": "Bahnhof Fürstenberg (Havel) in 4 km, RE 5 nach Berlin", "value": true}
         ]
-      },
-      "offers": {
-        "@type": "Offer",
-        "name": "Wohnung 8, Obergeschoss rechts zum Garten, 48,83 m² Wohnfläche",
-        "price": "185000",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "seller": {"@type": "Person", "name": "Tim Lehmann"}
-      }
+      }{% if n > 0 %},
+      "offers": [{{ offers }}]{% endif %}
     },
+{%- endunless %}
     {
       "@type": "FAQPage",
       "mainEntity": [
@@ -100,7 +114,7 @@
 
 <section class="hero">
   <h1>Wohnen im ehemaligen Gutshaus am <em>Ziernsee</em></h1>
-  <p class="lead hero-lead">Drei Eigentumswohnungen im Obergeschoss der Villa Meteor in Kleinmenow stehen zum Verkauf. Für Menschen, die Landleben in Gemeinschaft suchen.</p>
+  <p class="lead hero-lead">{% if alle_verkauft %}Die drei Eigentumswohnungen im Obergeschoss der Villa Meteor in Kleinmenow sind verkauft. Das Haus bleibt ein Ort für Menschen, die Landleben in Gemeinschaft suchen.{% else %}Drei Eigentumswohnungen im Obergeschoss der Villa Meteor in Kleinmenow stehen zum Verkauf. Für Menschen, die Landleben in Gemeinschaft suchen.{% endif %}</p>
   <p class="hero-meta mono">
     <span>Villa Meteor</span>
     <span>Kleinmenow</span>
@@ -116,7 +130,7 @@
   </figure>
 
   <dl class="facts">
-    <div><dt>Zum Verkauf</dt><dd>Drei Wohnungen im Obergeschoss</dd></div>
+    {% if alle_verkauft %}<div><dt>Verkauft</dt><dd>Alle drei Wohnungen im Obergeschoss</dd></div>{% else %}<div><dt>Zum Verkauf</dt><dd>Drei Wohnungen im Obergeschoss</dd></div>{% endif %}
     <div><dt>Wohnflächen</dt><dd>38 bis 66 m², dazu je 19 m² Anteil an den Gemeinschaftsflächen</dd></div>
     <div><dt>Grundstück</dt><dd>Ehemaliger Gutspark, ca. 4.000 m²</dd></div>
     <div><dt>Wasser</dt><dd>Ziernsee in 200 m, drei Badestellen in der Nähe</dd></div>
@@ -191,7 +205,7 @@
       <dl>
         <dt>Wohnfläche</dt><dd>65,78 m²</dd>
         <dt>Mit Anteil</dt><dd>84,88 m²</dd>
-        <dt>Preis</dt><dd class="price">auf Anfrage</dd>
+        <dt>Preis</dt><dd class="price">{%- case s6 -%}{%- when "verkauft" -%}verkauft{%- when "reserviert" -%}reserviert{%- else -%}{{ p6 | default: "auf Anfrage" }}{%- endcase -%}</dd>
       </dl>
     </li>
     <li class="flat">
@@ -203,19 +217,19 @@
       <dl>
         <dt>Wohnfläche</dt><dd>38,06 m²</dd>
         <dt>Mit Anteil</dt><dd>57,15 m²</dd>
-        <dt>Preis</dt><dd class="price">auf Anfrage</dd>
+        <dt>Preis</dt><dd class="price">{%- case s7 -%}{%- when "verkauft" -%}verkauft{%- when "reserviert" -%}reserviert{%- else -%}{{ p7 | default: "auf Anfrage" }}{%- endcase -%}</dd>
       </dl>
     </li>
     <li class="flat">
       <p class="we"><small>Wohnung</small>8</p>
       <div>
         <h3>Obergeschoss rechts, zum Garten</h3>
-        <p class="rooms">Wohnen und Schlafen, Essen, Küche, Büro oder Kinderzimmer, Bad, Flur. Südostlage, zum Garten hin. <a href="https://www.kleinanzeigen.de/s-anzeige/wohnen-im-ehemaligen-gutshaus-kleinmenow-community-projekt-we8/3496047260-196-19813">Zum Inserat auf Kleinanzeigen</a>.</p>
+        <p class="rooms">Wohnen und Schlafen, Essen, Küche, Büro oder Kinderzimmer, Bad, Flur. Südostlage, zum Garten hin.{% if inserat != "" and s8 == "frei" %} <a href="{{ inserat }}">Zum Inserat auf Kleinanzeigen</a>.{% endif %}</p>
       </div>
       <dl>
         <dt>Wohnfläche</dt><dd>48,83 m²</dd>
         <dt>Mit Anteil</dt><dd>67,92 m²</dd>
-        <dt>Preis</dt><dd class="price">185.000 €</dd>
+        <dt>Preis</dt><dd class="price">{%- case s8 -%}{%- when "verkauft" -%}verkauft{%- when "reserviert" -%}reserviert{%- else -%}{{ p8 | default: "auf Anfrage" }}{%- endcase -%}</dd>
       </dl>
     </li>
   </ul>
@@ -491,8 +505,8 @@
   <p class="index mono"><span class="n num">07</span><span class="l">Kontakt</span></p>
   <h2>Neugierig? Dann schreib uns.</h2>
   <div class="main contact">
-    <p><span class="mono">Eigentümer</span>Tim Lehmann<br><a href="mailto:tim.c.lehmann@gmail.com">tim.c.lehmann@gmail.com</a><br><a href="tel:+4916097458658">0160 97458658</a></p>
-    <p class="note" style="font-size:var(--t-0);margin-top:1.5rem">Der Verkauf erfolgt provisionsfrei und direkt. Bitte keine Anfragen von Maklern. Das aktuelle Inserat für Wohnung 8 steht <a href="https://www.kleinanzeigen.de/s-anzeige/wohnen-im-ehemaligen-gutshaus-kleinmenow-community-projekt-we8/3496047260-196-19813">auf Kleinanzeigen</a>.</p>
+    <p><span class="mono">Eigentümer</span>Tim Lehmann<br><a href="mailto:{{ d.mail }}">{{ d.mail }}</a>{% if tel != "" %}<br><a href="tel:{{ tel }}">{{ d.telefon }}</a>{% endif %}</p>
+    {% unless alle_verkauft %}<p class="note" style="font-size:var(--t-0);margin-top:1.5rem">Der Verkauf erfolgt provisionsfrei und direkt. Bitte keine Anfragen von Maklern.{% if inserat != "" and s8 == "frei" %} Das aktuelle Inserat für Wohnung 8 steht <a href="{{ inserat }}">auf Kleinanzeigen</a>.{% endif %}</p>{% endunless %}
   </div>
   <aside class="aside">
     <p class="mono">Anschrift</p>
@@ -503,7 +517,7 @@
 </main>
 
 <footer class="footer mono">
-  <p style="margin:0">© 2026 Tim Lehmann · Stand Oktober 2026</p>
+  <p style="margin:0">© {{ d.stand | split: "/" | last }} Tim Lehmann · Stand {{ d.stand }}</p>
   <ul>
     <li><a href="impressum.html">Impressum</a></li>
     <li><a href="datenschutz.html">Datenschutz</a></li>
