@@ -224,7 +224,7 @@
       <p class="we"><small>Flat</small>8</p>
       <div>
         <h3>Upper floor, right, facing the garden</h3>
-        <p class="rooms">Living and sleeping, dining, kitchen, study or children’s room, bathroom, hall. South-east aspect, towards the garden.{% if inserat != "" and s8 == "frei" %} <a href="{{ inserat }}" hreflang="de">See the listing on Kleinanzeigen</a> (in German).{% endif %}</p>
+        <p class="rooms">Living and sleeping, dining, kitchen, study or children’s room, bathroom, hall. South-east aspect, towards the garden.{% if inserat != "" and s8 == "frei" %} <a href="{{ inserat }}" target="_blank" rel="noopener" hreflang="de">See the listing on Kleinanzeigen</a> (in German).{% endif %}</p>
       </div>
       <dl>
         <dt>Living space</dt><dd>48.83 m²</dd>
@@ -243,7 +243,7 @@
     <img src="../assets/img/grundriss-og.webp" width="1710" height="1248" loading="lazy" decoding="async"
          alt="Floor plan of the upper floor: flat 6 on the left, flat 7 on the right facing the road, flat 8 on the right facing the garden, in the middle the common areas with library, fireplace room and two balconies."
          style="filter:none">
-    <figcaption>Upper floor plan according to the planning permission of July 2025. Flats 6, 7 and 8 outlined in red, common areas in yellow. As of 10 October 2026 · <a href="../dokumente/grundriss-obergeschoss.pdf" hreflang="de">Floor plan as PDF</a> (in German)</figcaption>
+    <figcaption>Upper floor plan according to the planning permission of July 2025. Flats 6, 7 and 8 outlined in red, common areas in yellow. As of 10 October 2026 · <a href="../dokumente/grundriss-obergeschoss.pdf" target="_blank" rel="noopener" hreflang="de">Floor plan as PDF</a> (in German)</figcaption>
   </figure>
 
   <div class="full grid-4 offset reveal">
@@ -423,7 +423,7 @@
       <li><span class="year">2025</span><p>In July, planning permission is granted for dividing the main house into flats.</p></li>
       <li><span class="year">Today</span><p>The house is shared by long-established residents and newcomers to Fürstenberg, and used by Berliners as a weekend retreat.</p></li>
     </ol>
-    <p class="note" style="margin-top:1.25rem">More on the history of the house: <a href="https://gutshaeuser.de/de/guts_herrenhaeuser/gutshaeuser_k/gutshaus_kleinmenow_villa_meteor" hreflang="de">Gutshaus Kleinmenow on gutshaeuser.de</a>, the directory of manor houses (in German).</p>
+    <p class="note" style="margin-top:1.25rem">More on the history of the house: <a href="https://gutshaeuser.de/de/guts_herrenhaeuser/gutshaeuser_k/gutshaus_kleinmenow_villa_meteor" target="_blank" rel="noopener" hreflang="de">Gutshaus Kleinmenow on gutshaeuser.de</a>, the directory of manor houses (in German).</p>
   </div>
   <aside class="aside">
     <figure>
@@ -506,7 +506,7 @@
   <h2>Curious? Then write to us.</h2>
   <div class="main contact">
     <p><span class="mono">Owner</span>Tim Lehmann<br><a href="mailto:{{ d.mail }}">{{ d.mail }}</a>{% if tel != "" %}<br><a href="tel:{{ tel }}">{{ d.telefon }}</a>{% endif %}</p>
-    {% unless alle_verkauft %}<p class="note" style="font-size:var(--t-0);margin-top:1.5rem">The sale is commission-free and direct. No enquiries from estate agents, please.{% if inserat != "" and s8 == "frei" %} The current listing for flat 8 is <a href="{{ inserat }}" hreflang="de">on Kleinanzeigen</a> (in German).{% endif %}</p>{% endunless %}
+    {% unless alle_verkauft %}<p class="note" style="font-size:var(--t-0);margin-top:1.5rem">The sale is commission-free and direct. No enquiries from estate agents, please.{% if inserat != "" and s8 == "frei" %} The current listing for flat 8 is <a href="{{ inserat }}" target="_blank" rel="noopener" hreflang="de">on Kleinanzeigen</a> (in German).{% endif %}</p>{% endunless %}
   </div>
   <aside class="aside">
     <p class="mono">Address</p>

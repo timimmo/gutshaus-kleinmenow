@@ -224,7 +224,7 @@
       <p class="we"><small>Wohnung</small>8</p>
       <div>
         <h3>Obergeschoss rechts, zum Garten</h3>
-        <p class="rooms">Wohnen und Schlafen, Essen, Küche, Büro oder Kinderzimmer, Bad, Flur. Südostlage, zum Garten hin.{% if inserat != "" and s8 == "frei" %} <a href="{{ inserat }}">Zum Inserat auf Kleinanzeigen</a>.{% endif %}</p>
+        <p class="rooms">Wohnen und Schlafen, Essen, Küche, Büro oder Kinderzimmer, Bad, Flur. Südostlage, zum Garten hin.{% if inserat != "" and s8 == "frei" %} <a href="{{ inserat }}" target="_blank" rel="noopener">Zum Inserat auf Kleinanzeigen</a>.{% endif %}</p>
       </div>
       <dl>
         <dt>Wohnfläche</dt><dd>48,83 m²</dd>
@@ -243,7 +243,7 @@
     <img src="assets/img/grundriss-og.webp" width="1710" height="1248" loading="lazy" decoding="async"
          alt="Grundriss des Obergeschosses: Wohnung 6 links, Wohnung 7 rechts zur Straße, Wohnung 8 rechts zum Garten, in der Mitte die Gemeinschaftsflächen mit Bibliothek, Kaminzimmer und zwei Balkonen."
          style="filter:none">
-    <figcaption>Grundriss Obergeschoss nach der Baugenehmigung vom Juli 2025. Rot umrandet die Wohnungen 6, 7 und 8, gelb die Gemeinschaftsflächen. Stand 10.10.2026 · <a href="dokumente/grundriss-obergeschoss.pdf">Grundriss als PDF</a></figcaption>
+    <figcaption>Grundriss Obergeschoss nach der Baugenehmigung vom Juli 2025. Rot umrandet die Wohnungen 6, 7 und 8, gelb die Gemeinschaftsflächen. Stand 10.10.2026 · <a href="dokumente/grundriss-obergeschoss.pdf" target="_blank" rel="noopener">Grundriss als PDF</a></figcaption>
   </figure>
 
   <div class="full grid-4 offset reveal">
@@ -423,7 +423,7 @@
       <li><span class="year">2025</span><p>Im Juli liegt die Baugenehmigung für die Aufteilung des Haupthauses in Wohnungen vor.</p></li>
       <li><span class="year">Heute</span><p>Das Haus wird gemeinsam von Alteingesessenen und Neu-Fürstenbergern bewohnt und von Berlinern als Wochenendsitz genutzt.</p></li>
     </ol>
-    <p class="note" style="margin-top:1.25rem">Ausführlicher zur Geschichte des Hauses: <a href="https://gutshaeuser.de/de/guts_herrenhaeuser/gutshaeuser_k/gutshaus_kleinmenow_villa_meteor">Gutshaus Kleinmenow auf gutshaeuser.de</a>, dem Verzeichnis der Guts- und Herrenhäuser.</p>
+    <p class="note" style="margin-top:1.25rem">Ausführlicher zur Geschichte des Hauses: <a href="https://gutshaeuser.de/de/guts_herrenhaeuser/gutshaeuser_k/gutshaus_kleinmenow_villa_meteor" target="_blank" rel="noopener">Gutshaus Kleinmenow auf gutshaeuser.de</a>, dem Verzeichnis der Guts- und Herrenhäuser.</p>
   </div>
   <aside class="aside">
     <figure>
@@ -506,7 +506,7 @@
   <h2>Neugierig? Dann schreib uns.</h2>
   <div class="main contact">
     <p><span class="mono">Eigentümer</span>Tim Lehmann<br><a href="mailto:{{ d.mail }}">{{ d.mail }}</a>{% if tel != "" %}<br><a href="tel:{{ tel }}">{{ d.telefon }}</a>{% endif %}</p>
-    {% unless alle_verkauft %}<p class="note" style="font-size:var(--t-0);margin-top:1.5rem">Der Verkauf erfolgt provisionsfrei und direkt. Bitte keine Anfragen von Maklern.{% if inserat != "" and s8 == "frei" %} Das aktuelle Inserat für Wohnung 8 steht <a href="{{ inserat }}">auf Kleinanzeigen</a>.{% endif %}</p>{% endunless %}
+    {% unless alle_verkauft %}<p class="note" style="font-size:var(--t-0);margin-top:1.5rem">Der Verkauf erfolgt provisionsfrei und direkt. Bitte keine Anfragen von Maklern.{% if inserat != "" and s8 == "frei" %} Das aktuelle Inserat für Wohnung 8 steht <a href="{{ inserat }}" target="_blank" rel="noopener">auf Kleinanzeigen</a>.{% endif %}</p>{% endunless %}
   </div>
   <aside class="aside">
     <p class="mono">Anschrift</p>
